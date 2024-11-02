@@ -1,0 +1,9 @@
+<h2>Menu</h2>
+<ul>
+    {% for dish in dishes %}
+        <li>
+            <a href="{% url 'dish_detail' dish.id %}">{{ dish.name }}</a> - ${{ dish.price }}
+            {% if dish.availability %}Available{% else %}Out of Stock{% endif %}
+        </li>
+    {% endfor %}
+</ul>

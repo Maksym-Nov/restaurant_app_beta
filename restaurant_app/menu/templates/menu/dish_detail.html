@@ -1,0 +1,9 @@
+<h2>{{ dish.name }}</h2>
+<img src="{{ dish.image.url }}" alt="{{ dish.name }}">
+<p>{{ dish.description }}</p>
+<p>Price: ${{ dish.price }}</p>
+<form action="{% url 'add_to_cart' dish.id %}" method="post">
+    {% csrf_token %}
+    <input type="number" name="quantity" min="1" value="1">
+    <button type="submit">Add to Cart</button>
+</form>
